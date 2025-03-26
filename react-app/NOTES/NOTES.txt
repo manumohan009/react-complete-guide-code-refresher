@@ -1,1 +1,11 @@
-npm create vite@latest react-app
+Vite
+    npm create vite@latest react-app
+
+React Router
+    RouterProvider
+    createBrowserRouter
+    Outlet
+    Link
+    Form
+    redirect
+    useNavigate
