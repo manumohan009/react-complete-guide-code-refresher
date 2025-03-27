@@ -27,3 +27,17 @@ function NewPost() {
 }
 
 export default NewPost;
+
+export async function loader({request}){
+    const formData = await request.formData();
+    const postData = Object.fromEntries(formData);
+    console.log(postData, 'postData')
+    await fetch('http://localhost:8080/posts', {
+        method: 'POST',
+        body: JSON.stringify(postData),
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    });
+    return redirect('/')
+}

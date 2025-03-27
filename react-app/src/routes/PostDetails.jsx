@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Modal from "../components/Modal";
+
 
 import classes from './PostDetails.module.css'
 
 function PostDetails() {
-    const post = {id: '123', author: 'Manu', body: 'React is awesome'}
+    const post = useLoaderData();
+    // const post = {id: '123', author: 'Manu', body: 'React is awesome'}
     if(!post){
         return (
             <>
@@ -33,3 +35,10 @@ function PostDetails() {
 }
 
 export default PostDetails;
+
+export async function loader({params}){
+    console.log(params, "params");
+    const response = await fetch('http://localhost:8080/posts/' + params.postId);
+    const resData = await response.json();
+    return resData.post;
+}

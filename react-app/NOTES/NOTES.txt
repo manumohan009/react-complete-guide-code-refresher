@@ -9,3 +9,8 @@ React Router
     Form
     redirect
     useNavigate
+    useLoaderData
+
+Hooks
+    useState
+    useEffect

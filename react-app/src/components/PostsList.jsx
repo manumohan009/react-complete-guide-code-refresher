@@ -1,12 +1,14 @@
+import { useLoaderData } from "react-router-dom";
 import Post from "./Post";
 
 import classes from './PostsList.module.css';
 
-function PostsList() {
-    const posts = [
-        { id: '123', author: 'Manu', body: 'React is awesome' },
-        { id: '456', author: 'Kumar', body: 'Angular is awesome' },
-    ]
+function PostsList(props) {
+    const posts = useLoaderData();
+    // const posts = [
+    //     { id: '123', author: 'Manu', body: 'React is awesome' },
+    //     { id: '456', author: 'Kumar', body: 'Angular is awesome' },
+    // ]
     return (
         <>
             {posts.length > 0 && (
